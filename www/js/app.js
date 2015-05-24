@@ -1,6 +1,6 @@
 var appIndex = $.inherit({
 
-    duration: 500,
+    duration: 300,
     sideBarOpent: false,
     friendOpen: false,
 
@@ -82,10 +82,10 @@ var appIndex = $.inherit({
     openFriendPanel : function(data) {
         console.log(data.id + " est l'ID du parent");
         this.friendsPanel.height(this.friendsPanelSize);
-        var openFriendPanelSize = this.friendsPanelSize + this.friendsPanelOpenSize;
+        this.openFriendPanelSize = this.friendsPanelSize + this.friendsPanelOpenSize;
 
         $(data.panel).stop().animate({
-            'height': openFriendPanelSize,
+            'height': this.openFriendPanelSize,
             'ease': 'ease'
         }, 300);
         $(data.panel).addClass('active');
