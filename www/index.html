@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/ionicons.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Money Reminder</title>
+    </head>
+    <body>
+
+    <!-- ***************** SIDEBAR ******************** -->
+    <nav class="sidebar" id="nav">
+        <div class="user">
+            <img src="img/jb2.jpg" alt=""/>
+            <div class="submenu spacer">
+                <a href="#" id="submenu-user"><i class="ion-information-circled"></i> Julien Bonnetaud</a>
+                <div class="subcontent " id="subcontent-user">
+                    <a class="due" href="#">  Due : <span class="counters">250 $ <i class="ion-social-usd"></i></span></a>
+                    <a href="" class="recover"> Recover : <span class="counters">310 $ <i class="ion-social-usd"></i></span></a>
+                    <a href="" class="total"> Total : <span class="counters">+ 129 $ <i class="ion-social-usd"></i></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="submenu">
+            <a href="#" id="submenu-friends"><i class="ion-android-contacts"></i> Friends</a>
+            <div class="subcontent hide" id="subcontent-friends">
+                <a href="#allFriends"> View all</a>
+                <a href="#newFriends"> Add a friend</a>
+            </div>
+        </div>
+        <div class="submenu">
+            <a href="#"><i class="ion-stats-bars"></i> Statistics</a>
+        </div>
+        <div class="submenu">
+            <a href="#" id="submenu-settings"><i class="ion-android-settings"></i> Settings</a>
+            <div class="subcontent hide" id="subcontent-settings">
+                <a href="#editProfil"> Edit Profil</a>
+                <a href="#confidentiality"> Confidentiality</a>
+            </div>
+        </div>
+    </nav>
+    <!-- ***************** FIN SIDEBAR ******************** -->
+    <div class="main">
+        <header class="header">
+            <span>Money Reminder</span>
+            <a class="display-sidebar" href="#nav"><i class="icon ion-android-menu"></i></a>
+        </header>
+        <div class="main-content">
+            <div class="friend-panel-mini" data-id="1">
+                <img src="img/alex.png" alt="friend1"/>
+                <span class="name">Alexandre bayle</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="clear"></div>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : +7$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini" data-id="2">
+                <img src="img/cams.png" alt="friend1"/>
+                <span class="name">Camil Mesfioui</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini" data-id="3">
+                <img src="img/tiff.png" alt="friend1"/>
+                <span class="name">Tiffany Bouras</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini">
+                <img src="img/benoit.png" alt="friend1"/>
+                <span class="name">Benoit Dursent</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini">
+                <img src="img/alex.png" alt="friend1"/>
+                <span class="name">Alexandre bayle</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini">
+                <img src="img/cams.png" alt="friend1"/>
+                <span class="name">Camil Mesfioui</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini">
+                <img src="img/tiff.png" alt="friend1"/>
+                <span class="name">Tiffany Bouras</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+            <div class="friend-panel-mini">
+                <img src="img/benoit.png" alt="friend1"/>
+                <span class="name">Benoit Dursent</span>
+                <span class="due">15 $</span>
+                <span class="recover"> 24 $</span>
+                <div class="friend-open-panel">
+                    <input class="newDue" type="text" placeholder="Due : 15$"/>
+                    <input class="newRecover" type="text" placeholder="To recover : 24$"/>
+                    <input class="total" type="text" value="Total : 29$" disabled/>
+                    <button>Save</button>
+                </div>
+            </div>
+        </div>
+        <!-- ***************** BOTTOM NAV ******************** -->
+        <nav class="bottom-nav">
+            <a href="#viewFriends" class="viewFriends active"><i class="ion-ios-list-outline"></i></a>
+            <a href="#addFriend" class="addFriend"><i class="ion-android-person-add"></i></a>
+        </nav>
+    </div>
+    </body>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-inherit.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</html>
