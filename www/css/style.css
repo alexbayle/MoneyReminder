@@ -331,3 +331,7 @@ nav.bottom-nav a.viewFriends {
     left: 0;
     top: 0;
 }
+nav.bottom-nav a.addFriend {
+    right: 0;
+    top: 0;
+}
