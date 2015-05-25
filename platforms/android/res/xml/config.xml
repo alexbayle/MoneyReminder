@@ -1,6 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="fr.julienbonnetaud.moneyreminder" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <splash density="port-hdpi" src="platforms/android/res/drawable-hdpi/splash.png" />
+    <splash density="port-ldpi" src="platforms/android/res/drawable-ldpi/splash.png" />
+    <splash density="port-mdpi" src="platforms/android/res/drawable-mdpi/splash.png" />
+    <splash density="port" src="platforms/android/res/drawable/splash.png" />
     <name>Money-Reminder</name>
     <description>
         Money Reminder, because good fences make good neighbours. :)
@@ -9,14 +20,12 @@
         Julien Bonnetaud, Alexandre Bayle et Ali Abdennadher, IIM
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="http://google.com" />
+    <access origin="https://google.com" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="SplashScreen">
-        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
-        <param name="onload" value="true" />
-    </feature>
+    <preference name="SplashScreen" value="screen.png" />
+    <preference name="SplashScreenDelay" value="10000" />
 </widget>

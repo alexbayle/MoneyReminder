@@ -11,8 +11,19 @@
     <!-- Allow images, xhrs, etc. to ??????.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
+
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
+    <preference name="SplashScreen" value="screen.png" />
+    <preference name="SplashScreenDelay" value="10000" />
+
+    <platform name="android">
+        <splash src="platforms/android/res/drawable-hdpi/splash.png" density="port-hdpi"/>
+        <splash src="platforms/android/res/drawable-ldpi/splash.png" density="port-ldpi"/>
+        <splash src="platforms/android/res/drawable-mdpi/splash.png" density="port-mdpi"/>
+        <splash src="platforms/android/res/drawable/splash.png" density="port"/>
+    </platform>
+
 </widget>

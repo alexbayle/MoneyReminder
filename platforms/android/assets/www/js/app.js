@@ -5,6 +5,7 @@ var appIndex = $.inherit({
     friendOpen: false,
 
     __constructor : function() {
+        navigator.splashscreen.show();
         this.body = $('body');
         this.sidebar = this.body.find('.sidebar');
         this.btnMenu = this.body.find('a.display-sidebar');
@@ -105,6 +106,15 @@ var appIndex = $.inherit({
         this.sidebarOpen = true;
     }
 });
+// Wait for device API libraries to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// device APIs are available
+//
+function onDeviceReady() {
+    navigator.splashscreen.show();
+}
 new appIndex();
 
 /*
