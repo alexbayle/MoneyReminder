@@ -1,0 +1,338 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    overflow: hidden;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.clear {
+    clear: both;
+}
+/*
+********************* HEADER *********************
+*/
+
+body {
+    background: #f7f7f7;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    bottom: 0;
+}
+
+header {
+    position: absolute;
+    color: #ffffff;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    background: #37d8b5;
+}
+header span {
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+    top: 0;
+    left: 25px;
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    background: #37d8b5;
+}
+header .display-sidebar {
+    position: absolute;
+    display: block;
+    height: 60px;
+    width: 40px;
+    top: 0px;
+    left: 15px;
+    line-height: 68px;
+    font-size: 50px;
+    color: #ffffff;
+}
+.main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    display: block;
+    width: 100%;
+}
+/*
+********************* SIDEBAR *********************
+*/
+nav.sidebar {
+    z-index: 50;
+    position: absolute;
+    padding-top: 20px;
+    top: 0px;
+    left: -255px;
+    width: 255px;
+    bottom: 0;
+    background: #272930;
+    color: #ffffff;
+}
+.user{
+    padding: 15px;
+    margin-top: 15px;
+}
+.user img{
+    display: block;
+    margin: 0 auto;
+    width: 130px;
+    -webkit-border-radius: 75px;
+    border-radius: 75px;
+    vertical-align: middle;
+    border: 1px solid #ffffff;
+}
+.user p{
+    padding-top: 15px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+.counters{
+    color: #37d8b5;
+}
+.menu a, .submenu a{
+    height: 40px;
+    display: block;
+    color: #ffffff;
+    line-height: 40px;
+    border-top: 1px solid #32353e;
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+.menu a, .submenu a:first-child{
+    height: 40px;
+    display: block;
+    color: #ffffff;
+    line-height: 40px;
+    border-top: 1px solid #32353e;
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    text-decoration: none;
+}
+.menu a:hover,.submenu a:hover{
+    background: #2A2C34;
+    border-right: 3px solid #2bcfab;
+}
+.submenu .right{
+    float: right;
+    padding-right: 15px;
+}
+.subcontent{
+    background: #1A1C20;
+}
+.subcontent a{
+    border: inherit;
+    height: 30px;
+    line-height: 30px;
+}
+
+.subcontent a.due span{
+    color: #b11a1a;
+}
+.subcontent a.due span:hover, .subcontent a.recover span:hover{
+    cursor: pointer;
+}
+.subcontent a.recover span{
+    color: #ffffff;
+}
+
+/*
+********************* MAIN CONTENT *********************
+*/
+.main-content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 60px;
+    overflow-y: scroll;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.friend-panel-mini {
+    display: block;
+    height: 85px;
+    line-height: 85px;
+    position: relative;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+    transition: all 0.2s ease;
+}
+.friend-panel-mini.active {
+    display: block;
+    line-height: 85px;
+    position: relative;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+    transition: all 0.5s ease;
+}
+.friend-panel-mini img {
+    position: relative;
+    top: 13px;
+    left: 10px;
+    border-radius: 60px;
+    height: 60px;
+    display: inline-block;
+    float: left;
+}
+.friend-panel-mini span {
+    position: relative;
+    height: 85px;
+    line-height: 85px;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+}
+.friend-panel-mini span.name {
+    left: 15px;
+    width: 150px;
+}
+.friend-panel-mini span.recover {
+    left: 25px;
+    top: 25px;
+    background: #2bcfab;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px 7px;
+    height: 25px;
+    color: #ffffff;
+    line-height: 25px;
+}
+.friend-panel-mini span.due {
+    top: 25px;
+    left: 15px;
+    background: #b11a1a;
+    border-radius: 5px;
+    height: 25px;
+    line-height: 25px;
+    padding: 5px 7px;
+    font-size: 14px;
+    color: #ffffff;
+}
+.friend-open-panel{
+    padding-bottom: 15px;
+}
+.friend-open-panel input{
+    width: 200px;
+    margin: 7px auto;
+    height: 35px;
+    font-size: 16px;
+    padding-left: 10px;
+    display: block;
+}
+.friend-open-panel button{
+    height: 35px;
+    background: none;
+    line-height: 30px;
+    color: #37d8b5;
+    border: 1px solid #37d8b5;
+    font-size: 16px;
+    display: block;
+    width: 200px;
+    margin: 7px auto;
+    cursor: pointer;
+}
+.friend-open-panel input.newDue, .friend-open-panel input.newDue:-moz-placeholder, .friend-open-panel input.newDue:-ms-input-placeholder, .friend-open-panel input.newDue::-webkit-input-placeholder{
+    color: #b11a1a;
+}
+.friend-open-panel input.newRecover, .friend-open-panel input.newRecover:-moz-placeholder, .friend-open-panel input.newRecover:-ms-input-placeholder, .friend-open-panel input.newRecover::-webkit-input-placeholder{
+    color: #37d8b5;
+}
+
+/*
+********************* BOTTOM NAV *********************
+*/
+nav.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    background: #37d8b5;
+    color: #ffffff;
+    height: 65px;
+    text-align: center;
+}
+nav.bottom-nav a {
+    width: 50%;
+    line-height: 65px;
+    position: absolute;
+    font-size: 40px;
+    height: 65px;
+    display: inline-block;
+    color: #ffffff;
+}
+nav.bottom-nav a.active {
+    background: #2bcfab;
+}
+
+nav.bottom-nav a:first-child {
+    border-right: 1px solid #ffffff;
+}
+nav.bottom-nav a.viewFriends {
+    left: 0;
+    top: 0;
+}
+nav.bottom-nav a.addFriend {
+    right: 0;
+    top: 0;
+}

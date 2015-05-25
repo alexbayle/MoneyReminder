@@ -76,7 +76,7 @@ header {
     height: 60px;
     line-height: 60px;
     font-size: 30px;
-    background: #37d8b5;
+    background: #41cbad;
 }
 header span {
     position: absolute;
@@ -89,7 +89,7 @@ header span {
     height: 60px;
     line-height: 60px;
     font-size: 30px;
-    background: #37d8b5;
+    background: #41cbad;
 }
 header .display-sidebar {
     position: absolute;
@@ -144,7 +144,7 @@ nav.sidebar {
     text-align: center;
 }
 .counters{
-    color: #37d8b5;
+    color: #41cbad;
 }
 .menu a, .submenu a{
     height: 40px;
@@ -283,8 +283,8 @@ nav.sidebar {
     height: 35px;
     background: none;
     line-height: 30px;
-    color: #37d8b5;
-    border: 1px solid #37d8b5;
+    color: #41cbad;
+    border: 1px solid #41cbad;
     font-size: 16px;
     display: block;
     width: 200px;
@@ -295,7 +295,7 @@ nav.sidebar {
     color: #b11a1a;
 }
 .friend-open-panel input.newRecover, .friend-open-panel input.newRecover:-moz-placeholder, .friend-open-panel input.newRecover:-ms-input-placeholder, .friend-open-panel input.newRecover::-webkit-input-placeholder{
-    color: #37d8b5;
+    color: #41cbad;
 }
 
 /*
@@ -307,7 +307,7 @@ nav.bottom-nav {
     left: 0;
     display: block;
     width: 100%;
-    background: #37d8b5;
+    background: #41cbad;
     color: #ffffff;
     height: 65px;
     text-align: center;
