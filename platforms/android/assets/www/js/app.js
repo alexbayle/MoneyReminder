@@ -5,17 +5,28 @@ var appIndex = $.inherit({
     friendOpen: false,
 
     __constructor : function() {
-        navigator.splashscreen.show();
         this.body = $('body');
+        // SIDEBAR VAR
         this.sidebar = this.body.find('.sidebar');
         this.btnMenu = this.body.find('a.display-sidebar');
         this.sidebarSize = this.sidebar.width();
 
-        this.friendsPanel = this.body.find('.friend-panel-mini');
-        this.friendsPanelSize = this.friendsPanel.outerHeight();
-        this.friendsPanelOpenSize = this.friendsPanel.find('.friend-open-panel').outerHeight();
+        this.main = this.body.find('.main');
+        this.mainContent = this.body.find('.main-content');
+        this.friendSinglePanel = this.body.find('.friend-panel-single');
+        this.friendsPanel = this.mainContent.find('.friend-panel-mini');
         this.btnRecover = this.friendsPanel.find('.recover');
         this.btnDue = this.friendsPanel.find('.due');
+
+        console.log(this.friendSinglePanel);
+
+        // BOTTOM NAV VAR
+        this.bottomNav = this.body.find('.main nav.bottom-nav');
+        this.btnFriends = this.bottomNav.find('a.viewFriends');
+        this.btnAddFriend = this.bottomNav.find('a.addFriend');
+
+        this.screenWidth = $(window).width();
+
 
         this.initEvents();
     },
@@ -23,6 +34,23 @@ var appIndex = $.inherit({
     initEvents : function() {
         this.initMenu();
         this.initFriends();
+        this.initBottomNav();
+
+        this.testRequestAddFriend();
+
+        // DEFAULT VIEW
+        this.displayListFriends();
+    },
+
+    initBottomNav : function() {
+        var self = this;
+
+        this.btnFriends.on("click", function() {
+            self.displayListFriends();
+        });
+        this.btnAddFriend.on("click", function() {
+            self.displayAddFriend();
+        });
     },
 
     initMenu : function() {
@@ -43,53 +71,48 @@ var appIndex = $.inherit({
     initFriends : function() {
         var self = this;
 
-        this.friendsPanel.delegate(this.btnRecover, 'click', function(e) {
+        this.mainContent.delegate(this.friendsPanel, 'click', function(e) {
             // Recuperer div parent et l'attr data-id pour savoir quel friend modifier
             e.preventDefault();
-            var action = $(e.target).attr('class');
-            var panel = $(e.target).parent('.friend-panel-mini');
+            var action = "find";
+            var friendId = $(e.target).parent('.friend-panel-mini').data('id');
+            console.log($(friendId));
             var data = {
                 'action': action,
-                'panel': panel
+                'user-id': friendId
             };
-            if (data.panel.hasClass('active')) {
-                self.closeFriendPanel(data);
-            } else {
-                // Affiche popin de formulaire
-                if (action == 'recover') {
-                    self.friendsPanel.height(self.friendsPanelSize);
-                    self.friendsPanel.removeClass('active');
-                    console.log("Affiche recover panel");
-                    self.openFriendPanel(data);
-                }
-                if (action == 'due') {
-                    self.friendsPanel.height(self.friendsPanelSize);
-                    self.friendsPanel.removeClass('active');
-                    self.friendsPanel.height(self.friendsPanelSize);
-                    console.log("Affiche due panel");
-                }
-            }
+            self.getSingleFriend(data);
+
         })
     },
 
-    closeFriendPanel : function(data) {
-        $(data.panel).stop().animate({
-            'height': this.friendsPanelSize,
-            'ease': 'ease'
-        }, 300);
-        $(data.panel).removeClass('active');
+    getSingleFriend : function(data) {
+        // AJAX FIND 1 USER
+        //SUCCESS
+        var friend = data;
+        this.displaySingleFriend(friend);
     },
 
-    openFriendPanel : function(data) {
-        console.log(data.id + " est l'ID du parent");
-        this.friendsPanel.height(this.friendsPanelSize);
-        this.openFriendPanelSize = this.friendsPanelSize + this.friendsPanelOpenSize;
+    displaySingleFriend : function(friend) {
+        // ANIMATE SINGLE FRIEND VIEW
+        // INJECT
+        this.friendSinglePanel.stop().animate({
+            'opacity': 1,
+            'zIndex': 200
+        }, this.duration);
+        this.mainContent.css('display', 'none');
+    },
 
-        $(data.panel).stop().animate({
-            'height': this.openFriendPanelSize,
-            'ease': 'ease'
-        }, 300);
-        $(data.panel).addClass('active');
+    displayListFriends : function() {
+        this.mainContent.css('display', 'block');
+        this.friendSinglePanel.stop().animate({
+            "zIndex": 0,
+            'opacity': 0
+        }, this.duration);
+    },
+
+    displayAddFriend : function() {
+        console.log("DISPLAY ADD FRIEND");
     },
 
     closeMenu : function() {
@@ -104,98 +127,34 @@ var appIndex = $.inherit({
             'left': this.sidebarSize
         }, this.duration);
         this.sidebarOpen = true;
+    },
+
+    testRequestAddFriend : function() {
+        var data = {
+            'type' : 'friend',
+            'action' : 'add',
+            'userid' : '1',
+            'data' : {
+                'name' : 'alex le pd',
+                'moneyToGet' : 23,
+                'moneyDue': 50
+            }
+        }
+        console.log(data);
+        $.ajax({
+            url      : 'http://alexandrebayle.com/moneyreminder/controllers/friend_controller.php',
+            data     : {
+                'type' : data.method,
+                'action': data.action,
+                'userid': data.userid,
+                'friend': data.friend
+            },
+            type     : 'POST',
+            dataType : 'json',
+            success  : function(data) {
+                console.log(data);
+            }
+        });
     }
 });
-// Wait for device API libraries to load
-//
-document.addEventListener("deviceready", onDeviceReady, false);
-
-// device APIs are available
-//
-function onDeviceReady() {
-    navigator.splashscreen.show();
-}
 new appIndex();
-
-/*
-$(document).ready(function() {
-    var body = $('body');
-    var sidebar = body.find('.sidebar');
-    var btnMenu = body.find('a.display-sidebar');
-    var sidebarSize = sidebar.width();
-
-    var friendsPanel = body.find('.friend-panel-mini');
-    var friendsPanelSize = friendsPanel.outerHeight();
-    var friendsPanelOpenSize = friendsPanel.find('.friend-open-panel').outerHeight();
-    var btnRecover = friendsPanel.find('.recover');
-    var btnDue = friendsPanel.find('.due');
-
-    var duration = 500;
-    var sidebarOpen = false;
-    var friendOpen = false;
-    console.log(friendsPanel);
-
-    btnMenu.on('click', function (e) {
-        e.preventDefault();
-        console.log(sidebarSize);
-        if (sidebarOpen){
-            body.stop().animate({
-                'left': 0
-            }, duration);
-            sidebarOpen = false;
-        } else {
-            body.stop().animate({
-                'left': sidebarSize
-            }, duration);
-            sidebarOpen = true;
-        }
-    })
-
-    friendsPanel.delegate(btnRecover, 'click', function(e) {
-        // Recuperer div parent et l'attr data-id pour savoir quel friend modifier
-        e.preventDefault();
-        var action = $(e.target).attr('class');
-        var panel = $(e.target).parent('.friend-panel-mini');
-        var data = {
-            'action': action,
-            'panel': panel
-        };
-        if (data.panel.hasClass('active')) {
-            closeFriendPanel(data);
-        } else {
-            // Affiche popin de formulaire
-            if (action == 'recover') {
-                friendsPanel.height(friendsPanelSize);
-                friendsPanel.removeClass('active');
-                console.log("Affiche recover panel");
-                openFriendPanel(data);
-            }
-            if (action == 'due') {
-                friendsPanel.height(friendsPanelSize);
-                friendsPanel.removeClass('active');
-                friendsPanel.height(friendsPanelSize);
-                console.log("Affiche due panel");
-            }
-        }
-    })
-
-    function openFriendPanel(data) {
-        console.log(data.id + " est l'ID du parent");
-        friendsPanel.height(friendsPanelSize);
-        var openFriendPanelSize = friendsPanelSize + friendsPanelOpenSize;
-        $(data.panel).stop().animate({
-            'height': openFriendPanelSize,
-            'ease': 'ease'
-        }, 300);
-        $(data.panel).addClass('active');
-    }
-
-    function closeFriendPanel(data) {
-        $(data.panel).stop().animate({
-            'height': friendsPanelSize,
-            'ease': 'ease'
-        }, 300);
-        $(data.panel).removeClass('active');
-    }
-})
-*/

@@ -9,7 +9,10 @@
     </author>
     <content src="index.html" />
     <!-- Allow images, xhrs, etc. to ??????.com -->
-    <access origin="http://google.com" />
+    <access origin="http://alexandrebayle.com" />
+    <access origin="http://localhost:8888/" />
+    <access origin="https://alexandrebayle.com" />
+    <access origin="*" />
     <access origin="https://google.com" />
 
     <preference name="DisallowOverscroll" value="true"/>

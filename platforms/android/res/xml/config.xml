@@ -20,7 +20,10 @@
         Julien Bonnetaud, Alexandre Bayle et Ali Abdennadher, IIM
     </author>
     <content src="index.html" />
-    <access origin="http://google.com" />
+    <access origin="http://alexandrebayle.com" />
+    <access origin="http://localhost:8888/" />
+    <access origin="https://alexandrebayle.com" subdomains="true"/>
+    <access origin="*" />
     <access origin="https://google.com" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="Orientation" value="portrait" />

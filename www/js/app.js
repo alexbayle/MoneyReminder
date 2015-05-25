@@ -22,8 +22,8 @@ var appIndex = $.inherit({
 
         // BOTTOM NAV VAR
         this.bottomNav = this.body.find('.main nav.bottom-nav');
-        this.displayFriends = this.bottomNav.find('a.viewFriends');
-        this.displayAddFriend = this.bottomNav.find('a.addFriend');
+        this.btnFriends = this.bottomNav.find('a.viewFriends');
+        this.btnAddFriend = this.bottomNav.find('a.addFriend');
 
         this.screenWidth = $(window).width();
 
@@ -36,6 +36,8 @@ var appIndex = $.inherit({
         this.initFriends();
         this.initBottomNav();
 
+        this.testRequestAddFriend();
+
         // DEFAULT VIEW
         this.displayListFriends();
     },
@@ -43,12 +45,12 @@ var appIndex = $.inherit({
     initBottomNav : function() {
         var self = this;
 
-        this.displayFriends.on("click", function() {
+        this.btnFriends.on("click", function() {
             self.displayListFriends();
-        })
-        this.displayFriends.on("click", function() {
+        });
+        this.btnAddFriend.on("click", function() {
             self.displayAddFriend();
-        })
+        });
     },
 
     initMenu : function() {
@@ -98,22 +100,19 @@ var appIndex = $.inherit({
             'opacity': 1,
             'zIndex': 200
         }, this.duration);
-        this.sidebarOpen = false;
+        this.mainContent.css('display', 'none');
     },
 
     displayListFriends : function() {
+        this.mainContent.css('display', 'block');
         this.friendSinglePanel.stop().animate({
             "zIndex": 0,
             'opacity': 0
         }, this.duration);
-        this.sidebarOpen = false;
     },
 
     displayAddFriend : function() {
-        this.friendSinglePanel.stop().animate({
-            'opacity': 1
-        }, this.duration);
-        this.sidebarOpen = false;
+        console.log("DISPLAY ADD FRIEND");
     },
 
     closeMenu : function() {
@@ -128,6 +127,40 @@ var appIndex = $.inherit({
             'left': this.sidebarSize
         }, this.duration);
         this.sidebarOpen = true;
+    },
+
+    testRequestAddFriend : function() {
+        var data = {
+            'type' : 'friend',
+            'action' : 'add',
+            'userid' : '1',
+            'data' : {
+                'friend_id': 1,
+                'friend_name' : 'alex le pd',
+                'moneyHeOwnesYou' : 23,
+                'moneyToGetBack': 50,
+                'friend_profilPic': 'dzazafzaf.png'
+            }
+        }
+        $.ajax({
+            url      : 'http://alexandrebayle.com/moneyreminder/controllers/friend_controller.php?',
+            data     : {
+                'type' : data.method,
+                'action': data.action,
+                'userid': data.userid,
+                'friend': data.friend
+            },
+            type     : 'GET',
+            dataType: 'json',
+            success  : function(data) {
+                console.log(data);
+                console.log("HAHA");
+            },
+            error : function(data) {
+                console.log(data);
+                console.log("erreur ...");
+            }
+        });
     }
 });
 new appIndex();
